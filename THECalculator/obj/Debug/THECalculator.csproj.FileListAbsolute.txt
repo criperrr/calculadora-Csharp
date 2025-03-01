@@ -1,0 +1,10 @@
+C:\Users\menin\Desktop\test\THECalculator\THECalculator\bin\Debug\THECalculator.exe.config
+C:\Users\menin\Desktop\test\THECalculator\THECalculator\bin\Debug\THECalculator.exe
+C:\Users\menin\Desktop\test\THECalculator\THECalculator\bin\Debug\THECalculator.pdb
+C:\Users\menin\Desktop\test\THECalculator\THECalculator\obj\Debug\THECalculator.csproj.AssemblyReference.cache
+C:\Users\menin\Desktop\test\THECalculator\THECalculator\obj\Debug\THECalculator.Form1.resources
+C:\Users\menin\Desktop\test\THECalculator\THECalculator\obj\Debug\THECalculator.Properties.Resources.resources
+C:\Users\menin\Desktop\test\THECalculator\THECalculator\obj\Debug\THECalculator.csproj.GenerateResource.cache
+C:\Users\menin\Desktop\test\THECalculator\THECalculator\obj\Debug\THECalculator.csproj.CoreCompileInputs.cache
+C:\Users\menin\Desktop\test\THECalculator\THECalculator\obj\Debug\THECalculator.exe
+C:\Users\menin\Desktop\test\THECalculator\THECalculator\obj\Debug\THECalculator.pdb
