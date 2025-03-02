@@ -49,8 +49,8 @@
             this.one = new System.Windows.Forms.Button();
             this.five = new System.Windows.Forms.Button();
             this.six = new System.Windows.Forms.Button();
-            this.toDo = new System.Windows.Forms.Label();
             this.four = new System.Windows.Forms.Button();
+            this.toDo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -68,7 +68,7 @@
             this.result.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.result.Location = new System.Drawing.Point(445, 54);
             this.result.Name = "result";
-            this.result.Size = new System.Drawing.Size(264, 45);
+            this.result.Size = new System.Drawing.Size(425, 45);
             this.result.TabIndex = 48;
             this.result.Text = "result";
             // 
@@ -282,15 +282,6 @@
             this.six.UseVisualStyleBackColor = true;
             this.six.Click += new System.EventHandler(this.onNumClick);
             // 
-            // toDo
-            // 
-            this.toDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toDo.Location = new System.Drawing.Point(91, 63);
-            this.toDo.Name = "toDo";
-            this.toDo.Size = new System.Drawing.Size(310, 71);
-            this.toDo.TabIndex = 35;
-            this.toDo.Text = "n";
-            // 
             // four
             // 
             this.four.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -302,11 +293,21 @@
             this.four.UseVisualStyleBackColor = true;
             this.four.Click += new System.EventHandler(this.onNumClick);
             // 
+            // toDo
+            // 
+            this.toDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toDo.Location = new System.Drawing.Point(91, 37);
+            this.toDo.Name = "toDo";
+            this.toDo.Size = new System.Drawing.Size(306, 75);
+            this.toDo.TabIndex = 52;
+            this.toDo.Text = "label3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1000, 450);
+            this.Controls.Add(this.toDo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.result);
             this.Controls.Add(this.doitagain);
@@ -328,10 +329,11 @@
             this.Controls.Add(this.one);
             this.Controls.Add(this.five);
             this.Controls.Add(this.six);
-            this.Controls.Add(this.toDo);
             this.Controls.Add(this.four);
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,8 +362,8 @@
         private System.Windows.Forms.Button one;
         private System.Windows.Forms.Button five;
         private System.Windows.Forms.Button six;
-        private System.Windows.Forms.Label toDo;
         private System.Windows.Forms.Button four;
+        private System.Windows.Forms.Label toDo;
     }
 }
 

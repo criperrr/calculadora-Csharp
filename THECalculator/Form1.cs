@@ -56,6 +56,7 @@ namespace THECalculator
         }
         void calcula()
         {
+            this.ActiveControl = null;
             DataTable table = new DataTable();
             if (cache.Length > 0)
             {
@@ -67,7 +68,13 @@ namespace THECalculator
                 {
                     cache = cache.Replace("÷", "/");
                     cache = cache.Replace("x", "*");
-                    value = Convert.ToDouble(table.Compute(cache, string.Empty)); //
+                    try
+                    {
+                        value = Convert.ToDouble(table.Compute(cache, string.Empty));
+                    } catch(Exception e)
+                    {
+                        result.Text = e.ToString();
+                    }
                     if (double.IsNaN(value) || double.IsInfinity(value))
                     {
                         preview.Text = "Cannot divide by zero.";
@@ -97,7 +104,6 @@ namespace THECalculator
             equals.Enabled = false;
             doitagain.Enabled = false;
         }
-
         private void equals_Click(object sender, EventArgs e)
         {
             if (canIDo() && Double.TryParse(preview.Text, out _))
@@ -124,6 +130,25 @@ namespace THECalculator
                 toDo.Text = result.Text;
                 calcula();
                 preview.Text = "";
+            }
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            foreach (Control controle in this.Controls)
+            {
+                if (e.KeyChar == '\r')
+                    equals.PerformClick();
+                else if (e.KeyChar == '/')
+                    division.PerformClick();
+                else if (e.KeyChar == '*')
+                    multi.PerformClick();
+                else {
+                    if (controle is Button button && button.Text == e.KeyChar.ToString())
+                        {button.PerformClick();
+                    }
+                
+                }
             }
         }
     }
