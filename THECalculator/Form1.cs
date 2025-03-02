@@ -60,6 +60,7 @@ namespace THECalculator
             DataTable table = new DataTable();
             if (cache.Length > 0)
             {
+                pop.Enabled = true;
                 if (areItOp(cache[cache.Length - 1]))
                 {
                     preview.Text = "Select another number.";
@@ -68,16 +69,25 @@ namespace THECalculator
                 {
                     cache = cache.Replace("÷", "/");
                     cache = cache.Replace("x", "*");
+                    alerts.Text = "";
                     try
                     {
                         value = Convert.ToDouble(table.Compute(cache, string.Empty));
                     } catch(Exception e)
                     {
-                        result.Text = e.ToString();
+                        alerts.Text = e.ToString();
+                        if(e is SyntaxErrorException)
+                        {
+                            alerts.Text = "Incorrect syntax. Fix it or will be ignored.";
+                        }
+                        if(e is OverflowException)
+                        {
+                            alerts.Text = "Out of range (Int64)\nYou still can do your stuff, but some operations may not work propely";
+                        }
                     }
                     if (double.IsNaN(value) || double.IsInfinity(value))
                     {
-                        preview.Text = "Cannot divide by zero.";
+                        alerts.Text = "Cannot divide by zero.";
                     }
                     else
                     {
@@ -85,6 +95,9 @@ namespace THECalculator
                     }
 
                 }
+            } else
+            {
+                pop.Enabled = false;
             }
 
         }
@@ -115,11 +128,12 @@ namespace THECalculator
         }
 
         private void pop_Click(object sender, EventArgs e)
-        {
+        { 
             char[] arraychar = cache.ToCharArray();
             arraychar = arraychar.Take(cache.Length - 1).ToArray();
             cache = new string(arraychar);
             toDo.Text = cache;
+            calcula();
         }
 
         private void doitagain_Click(object sender, EventArgs e)
@@ -139,15 +153,19 @@ namespace THECalculator
             {
                 if (e.KeyChar == '\r')
                     equals.PerformClick();
+                else if (e.KeyChar == '\b')
+                    pop.PerformClick();
                 else if (e.KeyChar == '/')
                     division.PerformClick();
                 else if (e.KeyChar == '*')
                     multi.PerformClick();
-                else {
+                else
+                {
                     if (controle is Button button && button.Text == e.KeyChar.ToString())
-                        {button.PerformClick();
+                    {
+                        button.PerformClick();
                     }
-                
+
                 }
             }
         }
